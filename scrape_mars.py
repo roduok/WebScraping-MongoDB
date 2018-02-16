@@ -14,7 +14,7 @@ def scrape():
     html = browser.html
     soup = BeautifulSoup(html, "html.parser")
     mars['title']= soup.div.find(class_="content_title").text.strip()
-    paragraph = soup.div.find(class_="image_and_description_container").text.strip()
+    mars['paragraph'] = soup.div.find(class_="image_and_description_container").text.strip()
   
     print(paragraph)
 
@@ -51,7 +51,7 @@ def scrape():
     for result in results3:
     # Retrieve url to where full size featured image is located
         featured_image_url = result.find('img')['src']
-    featured_image_url = "https://www.jpl.nasa.gov" +str(featured_image_url)
+    mars['featured_image'] = "https://www.jpl.nasa.gov" +str(featured_image_url)
     print(featured_image_url)
 
 
@@ -65,6 +65,7 @@ def scrape():
 
     #Retrieve Latest tweet that has weather data
     mars_weather = [p for p in soup.body.find_all('p') if 'Sol' in p.text][0].text
+    mars['mars_tweet'] = mars_weather
     print(mars_weather)
 
 
@@ -76,7 +77,7 @@ def scrape():
     print(tables)
 
     #convert dataframe to HTML
-    mars_table =tables.to_html()
+    mars['mars_table'] =tables.to_html()
     #Create hemisphere url dict
     hemisphere_image_urls = []
 
@@ -153,6 +154,5 @@ def scrape():
     mars['hemispheres']= hemisphere_image_urls
     print(hemisphere_image_urls)
     return mars
-
 
 
