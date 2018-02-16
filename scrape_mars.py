@@ -6,15 +6,16 @@ import time
 import pandas as pd
 
 def scrape():
+    mars = {}
     browser = Browser('chrome', headless=False)
     url = 'https://mars.nasa.gov/news/'
     browser.visit(url)
     time.sleep(2)
     html = browser.html
     soup = BeautifulSoup(html, "html.parser")
-    title = soup.div.find(class_="content_title").text.strip()
+    mars['title']= soup.div.find(class_="content_title").text.strip()
     paragraph = soup.div.find(class_="image_and_description_container").text.strip()
-    print(title)
+  
     print(paragraph)
 
     #retrieve url link to large size featured image
@@ -81,7 +82,7 @@ def scrape():
 
     #Retrieve Mars Hemispheres Images:
         #Cerberus Hemisphere IMG
-
+    
     url = 'https://astrogeology.usgs.gov/search/map/Mars/Viking/cerberus_enhanced'
     browser.visit(url)
     # HTML object
@@ -149,6 +150,9 @@ def scrape():
         hemi_4 = {'title': 'Valles Marineris Hemisphere', 'img_url': str(valles_hemi_img) }
         #append to hemi dict
         hemisphere_image_urls.append(hemi_4)
+    mars['hemispheres']= hemisphere_image_urls
     print(hemisphere_image_urls)
-scrape()
+    return mars
+
+
 
