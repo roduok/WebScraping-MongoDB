@@ -42,6 +42,14 @@
 <style>
   #hemi_title {
     text-align: center;
+    border: 2px;
+    background-color: gold;
+  }
+</style>
+<style>
+  #hemi_caption{
+    text-align: center;
+    
   }
 </style>
       <div class="row" id="facts">
@@ -57,11 +65,36 @@
   </div>
 </div>
       <div class="row" id="hemispheres">
-      <div class="col-md-12" id="hemi_title">
-        <h2> Mars Hemispheres</h2>
-        
+      <div class="col-md-12" >
+        <h2 id=hemi_title> Mars Hemispheres</h2>
+        <br>
+        <br>
+      </div>
       <div class="col-md-6" id="table">
-        <img href="{{mars.hemispheres}}"> </a>
+        <img src="{{mars.hemi_1}}" class="img-responsive"
+         alt="Responsive image">
+         <h2 id="hemi_caption"> Cerberus Hemisphere Enhanced</h2>
+
+      </div>
+      <div class="col-md-6" id="table">
+        <img src="{{mars.hemi_2}}" class="img-responsive"
+         alt="Responsive image">
+         <h2 id="hemi_caption"> Schiaparelli Hemisphere Enhanced</h2>
+         <br>
+
+      </div>
+      <div class="col-md-6" id="table">
+        <img src="{{mars.hemi_3}}" class="img-responsive"
+         alt="Responsive image">
+         <h2 id="hemi_caption"> Syrtis Major Hemisphere Enhanced</h2>
+         <br>
+
+      </div>
+      <div class="col-md-6" id="table">
+        <img src="{{mars.hemi_4}}" class="img-responsive"
+         alt="Responsive image">
+         <h2 id="hemi_caption"> Valles Marineris Hemisphere</h2>
+         <br>
 
       </div>
   </div>
@@ -73,3 +106,5 @@
     </div>
   </body>
   </html>
+
+  
