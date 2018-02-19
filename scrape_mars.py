@@ -16,7 +16,7 @@ def scrape():
     mars['title']= soup.div.find(class_="content_title").text.strip()
     mars['paragraph'] = soup.div.find(class_="image_and_description_container").text.strip()
   
-    print(paragraph)
+   
 
     #retrieve url link to large size featured image
 
@@ -78,6 +78,7 @@ def scrape():
 
     #convert dataframe to HTML
     mars['mars_table'] =tables.to_html()
+    
     #Create hemisphere url dict
     hemisphere_image_urls = []
 
@@ -96,9 +97,10 @@ def scrape():
     for result in cerberus:
     # Retrieve url to where full size featured image is located
         cerberus_hemi_img = result.find('a')['href']
-        hemi_1 = {'title': 'Cerberus Hemisphere', 'img_url': str(cerberus_hemi_img) }
+        hemi_1 = str(cerberus_hemi_img)
         #append cerberus to hemi dict
         hemisphere_image_urls.append(hemi_1)
+        mars['hemi_1'] = hemi_1
 
 
     #schiaparelli hemisphere
@@ -116,6 +118,8 @@ def scrape():
         hemi_2 = {'title': 'Schiaparelli Hemisphere', 'img_url': str(schiaparelli_hemi_img) }
         #append to hemi dict
         hemisphere_image_urls.append(hemi_2)
+        mars['hemi_2'] = str(schiaparelli_hemi_img)
+
 
     #Syrtis_major Hemi
     url = 'https://astrogeology.usgs.gov/search/map/Mars/Viking/syrtis_major_enhanced'
@@ -132,6 +136,7 @@ def scrape():
         hemi_3 = {'title': 'Syrtis Major Hemisphere', 'img_url': str(syrtis_hemi_img) }
         #append to hemi dict
         hemisphere_image_urls.append(hemi_3)
+        mars['hemi_3']=str(syrtis_hemi_img)
 
 
     #Valles Marineris Hemisphere
@@ -152,7 +157,6 @@ def scrape():
         #append to hemi dict
         hemisphere_image_urls.append(hemi_4)
     mars['hemispheres']= hemisphere_image_urls
+    mars['hemi_4']= str(valles_hemi_img)
     print(hemisphere_image_urls)
     return mars
-
-
