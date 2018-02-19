@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Surfing</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="mars_styles.css">
 </head>
 <body>
   <div clas="container">
@@ -23,15 +24,52 @@
             <h4 class="media-heading">{{mars.title}}</h4>
             <p> {{mars.paragraph}}</p>
     <div class="row" id="mars-featured-image">
+    
+
       <div class="col-md-8">
         <h2>Featured Mars Image</h2>
         <img src="{{mars.featured_image}}" class="img-responsive"
           alt="Responsive image">
       </div>
+      <style>
+  #weather {
+    width: 400px;
+    height: 150px;
+    padding: 10px;
+    border: 5px solid lightgray;
+  }
+</style>
+<style>
+  #hemi_title {
+    text-align: center;
+  }
+</style>
+      <div class="row" id="facts">
+      <div class="col-md-4" id="weather">
+        <h4>Current Weather on Mars</h4>
+        <p> {{mars.mars_tweet}} </p>
+      <div class="col-md-4" id="table">
+        <br>
+        <br>
+        <h4>Mars Facts</h4>
+        <a href="{{mars.mars_table}}"> </a> 
     </div>
   </div>
+</div>
+      <div class="row" id="hemispheres">
+      <div class="col-md-12" id="hemi_title">
+        <h2> Mars Hemispheres</h2>
+        
+      <div class="col-md-6" id="table">
+        <img href="{{mars.hemispheres}}"> </a>
 
-            
-          </div>
+      </div>
+  </div>
+    </div>
+    </div>
+</div>
         </div>
       </div>
+    </div>
+  </body>
+  </html>
